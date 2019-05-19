@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component'
 import { LoginComponent } from './login/login.component'
 import { UserFormComponent } from './user-form/user-form.component'
 import { ModalModule } from 'ngx-bootstrap/modal'
+import { ImageSliderComponent } from './image-slider/image-slider.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ModalModule } from 'ngx-bootstrap/modal'
     LoginComponent,
     NavbarComponent,
     UserFormComponent,
+    ImageSliderComponent,
   ],
   imports: [
     BrowserModule,
