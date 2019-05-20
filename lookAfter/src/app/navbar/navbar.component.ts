@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects
         this.isLogged = url === '/home' ? false : true
-        console.log(url, this.isLogged)
       }
     })
   }
@@ -37,7 +36,6 @@ export class NavbarComponent implements OnInit {
   }
 
   scroll(id: string) {
-    console.log(document.getElementById('contact'))
     document
       .getElementById(id)
       .scrollIntoView({ block: 'end', behavior: 'smooth' })
