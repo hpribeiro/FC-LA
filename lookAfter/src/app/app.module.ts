@@ -29,6 +29,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse'
 import { UserFormService } from './user-form/user-form.service'
 import { HttpClientModule } from '@angular/common/http'
 import { NgxSpinnerModule } from 'ngx-spinner'
+import { ToastrModule } from 'ngx-toastr'
+import { CommonModule } from '@angular/common'
 
 // Add an icon to the library for convenient access in other components
 library.add(
@@ -51,6 +53,7 @@ library.add(
     ImageSliderComponent,
   ],
   imports: [
+    CommonModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
@@ -61,6 +64,7 @@ library.add(
     CollapseModule,
     HttpClientModule,
     NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
   entryComponents: [LoginComponent, UserFormComponent],
   providers: [UserFormService],
