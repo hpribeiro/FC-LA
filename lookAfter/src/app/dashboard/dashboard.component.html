@@ -1,5 +1,16 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>Available soon</h1>
+<div class="jumbotron mb-0" style="min-height: 63vh">
+  <div class="container text-center text-wrap" style="font-size:1.6em">
+    <h1 class="schoolbell font-weight-bold">Available soon 👶🏿</h1>
+    <p class="overlock" *ngIf="!(user && user.firstName && user.createAt)">
+      Don't worry, soon we will be here with the best products to you!!!
+    </p>
+    <span>😉</span>
+    <p class="overlock" *ngIf="user && user.firstName && user.createAt">
+      Hey <strong>{{ user.firstName }}</strong
+      >, in <strong>{{ user.createAt | date }}</strong> you created your account
+      and guaranteed your access to our great products. Soon it will be here for
+      you
+    </p>
+    <span> 😊🎉🎊</span>
   </div>
 </div>
