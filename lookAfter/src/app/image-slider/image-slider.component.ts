@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { trigger, state, style, animate, transition } from '@angular/animations'
 
 @Component({
@@ -43,29 +43,18 @@ export class ImageSliderComponent implements OnInit {
   //   'https://img.honest.com/uploads/managed_assets/file/14957/Product-266-slide_with_zoom-d86487de-217a-4394-b5a2-756e3c42a075.jpg',
   //   'https://img.honest.com/uploads/managed_assets/file/14957/Product-266-slide_with_zoom-d86487de-217a-4394-b5a2-756e3c42a075.jpg',
   // ]
-  imagesInitial: any[] = [
-    'https://picsum.photos/1200/1200?random=1',
-    'https://picsum.photos/1200/1200?random=2',
-    'https://picsum.photos/1200/1200?random=3',
-    'https://picsum.photos/1200/1200?random=4',
-    'https://picsum.photos/1200/1200?random=5',
-    'https://picsum.photos/1200/1200?random=6',
-    'https://picsum.photos/1200/1200?random=7',
-    'https://picsum.photos/1200/1200?random=8',
-    // 'https://picsum.photos/800/1200?random=9',
-    // 'https://picsum.photos/800/1200?random=10',
-    // 'https://picsum.photos/800/1200?random=11',
-    // 'https://picsum.photos/800/1200?random=12',
-    // 'https://picsum.photos/800/1200?random=13',
-  ]
-  itemsPerPage = 4
+  @Input() imagesInitial: any[]
+  @Input() itemsPerPage = 4
+  @Input() rollDefaultInterval = 2000
   imagesChunked: any[]
   sliderControls: any
   FISRT_PAGE: any
   LAST_PAGE: any
+  rollInterval: any
   constructor() {}
 
   ngOnInit() {
+    this.startRoll()
     this.imagesChunked = this.chunk(this.imagesInitial, this.itemsPerPage)
     this.FISRT_PAGE = {
       previousPage: this.imagesChunked.length - 1,
@@ -137,5 +126,14 @@ export class ImageSliderComponent implements OnInit {
     const newIndex = index === 0 ? lastIndex : --index
     const item = arr[newIndex]
     return [item, newIndex]
+  }
+
+  startRoll() {
+    this.rollInterval = setInterval(() => {
+      this.goToNextPage()
+    }, this.rollDefaultInterval)
+  }
+  stopRoll() {
+    window.clearInterval(this.rollInterval)
   }
 }
