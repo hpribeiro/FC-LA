@@ -1,0 +1,42 @@
+[
+  {
+    "size": "M",
+    "name": "Basic",
+    "img": "diaper1.jpg"
+  },
+  {
+    "size": "L",
+    "name": "Roots",
+    "img": "diaper2.jpg"
+  },
+  {
+    "size": "XL",
+    "name": "Cloudy",
+    "img": "diaper3.jpg"
+  },
+  {
+    "size": "M",
+    "name": "Dino",
+    "img": "diaper4.jpg"
+  },
+  {
+    "size": "XL",
+    "name": "Caty",
+    "img": "diaper5.jpg"
+  },
+  {
+    "size": "M",
+    "name": "Unicorn",
+    "img": "diaper6.jpg"
+  },
+  {
+    "size": "M/L",
+    "name": "bear",
+    "img": "diaper7.jpg"
+  },
+  {
+    "size": "L",
+    "name": "jungle",
+    "img": "diaper8.jpg"
+  }
+]
