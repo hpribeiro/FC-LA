@@ -8,8 +8,10 @@
     src="https://hips.hearstapps.com/prima.cdnds.net/assets/17/17/2560x1656/gallery-1493207036-pampers.jpg?resize=3978:*"
   />
   <div class="h-100 container text-center bg-transparent">
-    <h1><fa-icon icon="baby" class="px-1"></fa-icon>Look After</h1>
-    <h5>
+    <h1 class="schoolbell font-weight-bold">
+      <fa-icon icon="baby" class="px-1"></fa-icon>Look After
+    </h1>
+    <h5 class="overlock">
       Be welcome to our website, here you will find the best products for your
       need! <br />
       We have the best quality for the best price
@@ -19,8 +21,9 @@
 <div
   class="min-vh-60 row justify-content-center align-items-center mx-0 px-4 bg-secondary"
   style="min-height: 70vh"
+  id="products"
 >
-  <app-image-slider class="h-100"></app-image-slider>
+  <app-image-slider class="h-100" [imagesInitial]="products"></app-image-slider>
 </div>
 <div
   #contact
@@ -30,18 +33,28 @@
 >
   <div class="h-100 container text-center">
     <div class="row justify-content-center my-1">
-      <h1 class="border-bottom border-info hover-underline-animation text-dark">
+      <h1
+        class="border-bottom border-info hover-underline-animation text-dark overlock"
+      >
         Contact Us
       </h1>
     </div>
     <div class="row justify-content-around my-1 mx-5 px-5">
       <div>
-        <h5 class="border-bottom border-info">Email</h5>
-        <span>confort@lookafter.com</span>
+        <h5
+          class="w-100 border-bottom border-info overlock hover-underline-animation text-dark"
+        >
+          Email
+        </h5>
+        <p>confort@lookafter.com</p>
       </div>
       <div>
-        <h5 class="border-bottom border-info">Phone</h5>
-        <span>1-971-diaper</span>
+        <h5
+          class="w-100 border-bottom border-info overlock hover-underline-animation text-dark"
+        >
+          Phone
+        </h5>
+        <p>1-971-diaper</p>
       </div>
     </div>
   </div>
