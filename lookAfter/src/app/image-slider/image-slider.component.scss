@@ -1,0 +1,75 @@
+div[hidden] {
+  display: none;
+}
+
+.image-page {
+  z-index: 9;
+}
+
+.img-wrapper {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.arrow fa-icon {
+  color: #fff;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.center {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  max-height: 100%;
+}
+
+.dots {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.dots > label {
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.checked-dot {
+  background: white !important;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}

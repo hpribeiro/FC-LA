@@ -1,3 +1,50 @@
-<p>
-  image-slider works!
-</p>
+<div *ngIf="imagesChunked" class="center">
+  <div
+    *ngFor="let imageGroup of imagesChunked; let i = index"
+    class="align-self-center image-page"
+  >
+    <div class="d-flex justify-content-center align-items-center mol-md-12">
+      <div
+        *ngFor="let image of imageGroup"
+        class="col-6 col-sm-6 col-md-3 px-1 img-wrapper"
+        [hidden]="i !== sliderControls.currentPage"
+        [@thumbState]="i === sliderControls.currentPage ? 'active' : 'inactive'"
+        class="tmb"
+      >
+        <img [src]="image" alt="" class="image image-contain" />
+      </div>
+    </div>
+  </div>
+  <div id="arrow-left" class="arrow align-self-center">
+    <button class="btn d-block float-left" (click)="goToPreviousPage()">
+      <fa-icon
+        icon="arrow-circle-left"
+        class="px-1 d-block float-left"
+        size="3x"
+      ></fa-icon>
+    </button>
+    <button class="btn d-block float-right" (click)="goToNextPage()">
+      <fa-icon
+        icon="arrow-circle-right"
+        class="px-1 d-block float-left"
+        size="3x"
+      ></fa-icon>
+    </button>
+  </div>
+  <div class="dots">
+    <input
+      type="radio"
+      class="d-none"
+      name="slider"
+      [attr.id]="'slider' + i"
+      *ngFor="let imageGroup of imagesChunked; let i = index"
+    />
+    <label
+      *ngFor="let imageGroup of imagesChunked; let i = index"
+      for="{{ 'slider' + i }}"
+      class="mx-1 shadow-lg"
+      (click)="goToPage(i)"
+      [ngClass]="{ 'checked-dot': i === sliderControls.currentPage }"
+    ></label>
+  </div>
+</div>
