@@ -29,6 +29,7 @@
     "core-js": "^2.5.4",
     "husky": "^2.3.0",
     "ngx-bootstrap": "^4.1.1",
+    "ngx-spinner": "^7.1.4",
     "pretty-quick": "^1.10.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

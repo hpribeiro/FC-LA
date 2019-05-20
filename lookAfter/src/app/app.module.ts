@@ -26,6 +26,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CollapseModule } from 'ngx-bootstrap/collapse'
+import { UserFormService } from './user-form/user-form.service'
+import { HttpClientModule } from '@angular/common/http'
+import { NgxSpinnerModule } from 'ngx-spinner'
 
 // Add an icon to the library for convenient access in other components
 library.add(
@@ -56,9 +59,11 @@ library.add(
     ModalModule.forRoot(),
     FontAwesomeModule,
     CollapseModule,
+    HttpClientModule,
+    NgxSpinnerModule,
   ],
   entryComponents: [LoginComponent, UserFormComponent],
-  providers: [],
+  providers: [UserFormService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
