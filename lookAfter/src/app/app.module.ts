@@ -12,7 +12,30 @@ import { LoginComponent } from './login/login.component'
 import { UserFormComponent } from './user-form/user-form.component'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { ImageSliderComponent } from './image-slider/image-slider.component'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faBaby,
+  faArrowCircleLeft,
+  faArrowCircleRight,
+} from '@fortawesome/free-solid-svg-icons'
+import {
+  faInstagram,
+  faFacebook,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CollapseModule } from 'ngx-bootstrap/collapse'
 
+// Add an icon to the library for convenient access in other components
+library.add(
+  faBaby,
+  faArrowCircleLeft,
+  faArrowCircleRight,
+  faInstagram,
+  faFacebook,
+  faYoutube
+)
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,11 +48,14 @@ import { ImageSliderComponent } from './image-slider/image-slider.component'
     ImageSliderComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    FontAwesomeModule,
+    CollapseModule,
   ],
   entryComponents: [LoginComponent, UserFormComponent],
   providers: [],
