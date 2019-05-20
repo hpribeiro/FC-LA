@@ -7,9 +7,9 @@ import { User } from '../models/user.model'
 })
 export class UserFormService {
   constructor(private http: HttpClient) {}
-  url = 'https://reqres.in/api/register'
+  url = 'https://httpbin.org/status'
 
-  create(user: User) {
-    return this.http.post(this.url, user)
+  register(user: User, code = 200) {
+    return this.http.post(`${this.url}/${code}`, user)
   }
 }

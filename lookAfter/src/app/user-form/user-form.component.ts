@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { User } from '../models/user.model'
 import { UserFormService } from './user-form.service'
 import { NgxSpinnerService } from 'ngx-spinner'
+import { ToastrService } from 'ngx-toastr'
+import { BsModalRef } from 'ngx-bootstrap/modal'
 
 @Component({
   selector: 'app-user-form',
@@ -16,7 +18,9 @@ export class UserFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userFormService: UserFormService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastrService: ToastrService,
+    public bsModalRef: BsModalRef
   ) {}
 
   ngOnInit() {
@@ -26,6 +30,7 @@ export class UserFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
+      mockError: [false, Validators.required],
     })
   }
 
@@ -41,19 +46,22 @@ export class UserFormComponent implements OnInit {
       this.spinner.hide()
       return
     }
-    this.user.email = 'eve.holt@reqres'
-    this.user = {
-      email: this.user.email,
-      password: this.user.password,
-    }
-    this.userFormService.create(this.user).subscribe(
+    this.user = { ...this.registerForm.value }
+    const code = this.user.mockError ? 400 : 200
+    this.userFormService.register(this.user, code).subscribe(
       response => {
-        console.log(response)
         this.spinner.hide()
+        this.bsModalRef.hide()
+        this.toastrService.success(
+          'You are ready to login and enjoy!!😄',
+          'Registered with success'
+        )
+        this.user.createAt = new Date()
+        localStorage.setItem('user', JSON.stringify(this.user))
       },
       error => {
-        console.log(error)
         this.spinner.hide()
+        this.toastrService.error('Please try again later', 'Something wrong 😞')
       }
     )
   }
