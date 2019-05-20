@@ -50,4 +50,4 @@ ng serve
 
 ## Author
 
-- **Henrique Ribeiro** - [PurpleBooth](https://github.com/PurpleBooth)
+- **Henrique Ribeiro**
