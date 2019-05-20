@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  isCollapsed = true
   bsModalRef: BsModalRef
   config = {
     animated: true,
